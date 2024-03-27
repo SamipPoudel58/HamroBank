@@ -1,4 +1,4 @@
-<h1><img align="center" src='frontend/public/images/hamrobanklogo.png' height='50' alt='logo' />  HamroBank | Cheque Signature Forgery Detection</h1>
+<h1><img align="center" src='frontend/public/hamrobanklogo.png' height='50' alt='logo' />  HamroBank | Cheque Signature Forgery Detection</h1>
 
 ## ⚙️ Tech Stack
 
