@@ -1,0 +1,19 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "*"
+djangorestframework = "*"
+numpy = "*"
+pillow = "*"
+tensorflow = "==2.15.0"
+jupyter = "*"
+notebook = "*"
+pyjwt = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.11"
