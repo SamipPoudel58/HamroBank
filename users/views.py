@@ -26,7 +26,7 @@ class RegisterView(APIView):
 
         response.set_cookie(key="jwt", value=token, httponly=True)
         user_data = UserSerializer(user_instance).data
-        response.data = {"user": {**user_data, "jwt": token}}
+        response.data = {**user_data, "jwt": token}
         return response
 
 
@@ -55,7 +55,7 @@ class LoginView(APIView):
 
         response.set_cookie(key="jwt", value=token, httponly=True)
         user_serializer = UserSerializer(user)
-        response.data = {"user": {**user_serializer.data, "jwt": token}}
+        response.data = {**user_serializer.data, "jwt": token}
         return response
 
 

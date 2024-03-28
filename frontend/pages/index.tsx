@@ -1,9 +1,5 @@
-import Image from 'next/image';
-import { Inter } from 'next/font/google';
 import ImageUpload from '@/components/image-upload';
 import { useState } from 'react';
-
-const inter = Inter({ subsets: ['latin'] });
 
 type ForgeryStatus = 'forged' | 'real' | null;
 
@@ -50,7 +46,7 @@ export default function Home() {
   };
 
   return (
-    <main className={`bg-[#F4F9FF] min-h-screen ${inter.className}`}>
+    <main className={`bg-[#F4F9FF] min-h-screen`}>
       <div className="py-12 max-w-[1000px] mx-auto flex flex-col items-center">
         <div className="w-full flex gap-x-8 mb-6">
           <div className="w-1/2">

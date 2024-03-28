@@ -3,9 +3,13 @@ import { Dispatch, SetStateAction, useState } from 'react';
 const ImageUpload = ({
   selectedFile,
   setSelectedFile,
+  height = 'h-[300px]',
+  textSize = 'text-base',
 }: {
   selectedFile: File | null;
   setSelectedFile: Dispatch<SetStateAction<any>>;
+  height?: string;
+  textSize?: string;
 }) => {
   const [isHighlight, setIsHighlight] = useState(false);
 
@@ -51,7 +55,7 @@ const ImageUpload = ({
 
   return selectedFile ? (
     <img
-      className="border border-slate-300 w-full h-[300px] object-fill bg-white rounded-2xl drop-shadow-[8px_-8px_8px_rgba(23,23,23,0.05)]"
+      className={`${height} w-full border border-slate-300 object-fill bg-white rounded-2xl drop-shadow-[8px_-8px_8px_rgba(23,23,23,0.05)]`}
       src={URL.createObjectURL(selectedFile)}
       alt="signature"
     />
@@ -61,19 +65,19 @@ const ImageUpload = ({
       onDragOver={(e) => handleOver(e)}
       onDragLeave={(e) => handleLeave(e)}
       onDrop={(e) => handleDrop(e)}
-      className={`${
+      className={`${height} ${
         isHighlight ? 'border-amber-400' : 'border-slate-200'
-      } rounded-2xl p-6 h-[300px] border-2 border-dashed flex flex-col items-center justify-center`}
+      } rounded-2xl p-6 border-2 border-dashed flex flex-col items-center justify-center`}
     >
       <div className="mb-4">
         <CloudUploadIcon classes="h-12 w-12 stroke-slate-400" />
       </div>
 
-      <p className="text-center mb-4">
+      <p className={`${textSize} text-center mb-4`}>
         Drag & drop or{' '}
         <label
           htmlFor="electricBillInput"
-          className="text-amber-500 text-lg font-bold cursor-pointer"
+          className="text-amber-500 font-bold cursor-pointer"
         >
           Choose File
         </label>{' '}
