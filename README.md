@@ -20,7 +20,10 @@ User Registration             |  User Login
 
 
 
-HamroBank is a minimal banking system integrated with a powerful cheque signature forgery detection using Siamese Neural Network.
+HamroBank is a minimal banking system integrated with a powerful cheque signature forgery detection using Siamese Neural Network. Built for the CSIT 7th Semester project by students of ASCOL Batch-2076:
+- Samip Poudel
+- Susan Sharma
+- Subash Khatiwada
 
 ## ⚙️ Tech Stack
 
