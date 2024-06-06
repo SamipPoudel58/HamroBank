@@ -8,6 +8,8 @@ from rest_framework.response import Response
 from .serializers import ChequeSerializer
 import os
 
+from users.models import User
+
 model = tf.keras.models.load_model("saved_model/my_model")
 
 @api_view(['POST'])
@@ -15,21 +17,22 @@ def check_forgery(request):
     if request.method == 'POST':
         serializer = ChequeSerializer(data=request.data)
         if serializer.is_valid():
-            image1 = serializer.validated_data['image1']
-            image2 = serializer.validated_data['image2']
-            image1_path = save_image(image1)
-            image2_path = save_image(image2)
+            chequeImgFile = serializer.validated_data['chequeImg']
+            chequeImg = save_image(chequeImgFile)
 
-            print(image1_path,image2_path)
-            
+            accountNo = serializer.validated_data['accountNo']
+            user = User.objects.get(id=accountNo)
+            originalImg = os.path.join('media/',str(user.signImg))
 
-            x = image.load_img(image1_path, target_size=(100, 100))
+            print(originalImg)
+
+            x = image.load_img(chequeImg, target_size=(100, 100))
             x = image.img_to_array(x)
             x = tf.image.rgb_to_grayscale(x)
             x = np.expand_dims(x, axis=0)
             x = x/255.0
 
-            y = image.load_img(image2_path, target_size=(100, 100))
+            y = image.load_img(originalImg, target_size=(100, 100))
             y = image.img_to_array(y)
             y = tf.image.rgb_to_grayscale(y)
             y = np.expand_dims(y, axis=0)
@@ -48,7 +51,8 @@ def check_forgery(request):
             else:
                 result = 'real'
                 print('real')
-            return Response({"status": result,"confidence":float(confidence*100)})
+            return Response({"originalSignImg": originalImg ,"status": result,"confidence":float(confidence*100)})
+            
 
 def save_image(image):
     # Define your image saving logic here, for example, save it in the media directory

@@ -50,6 +50,12 @@ const RegisterPage = () => {
             Create A New Account
           </h2>
 
+          {isError && (
+            <p className="font-bold bg-rose-100 py-4 px-4 text-center text-rose-600 mb-4">
+              Registration Failed!
+            </p>
+          )}
+
           <FormWrapper
             showLoader={isPending}
             className="space-y-4"

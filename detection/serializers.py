@@ -5,4 +5,4 @@ from .models import Cheque
 class ChequeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Cheque
-        fields = ['image1', 'image2', 'accountNumber']
+        fields = ['chequeImg', 'accountNo']

@@ -6,3 +6,8 @@ body {
   -webkit-font-smoothing: antialiased;
   font-family: 'Inter var', sans-serif;
 }
+
+*::selection {
+  background: #fbbf24;
+  color: #ffffff;
+}
