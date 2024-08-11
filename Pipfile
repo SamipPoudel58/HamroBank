@@ -12,6 +12,7 @@ tensorflow = "==2.15.0"
 jupyter = "*"
 notebook = "*"
 pyjwt = "*"
+django-cors-headers = "*"
 
 [dev-packages]
 
